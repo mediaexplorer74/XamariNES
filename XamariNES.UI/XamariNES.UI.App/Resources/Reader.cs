@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Linq;
+using System.Diagnostics;
 
 namespace XamariNES.UI.App.Resources
 {
@@ -11,7 +12,7 @@ namespace XamariNES.UI.App.Resources
     /// </summary>
     public class Reader
     {
-        /*
+        
         private readonly Assembly _assembly;
 
         /// <summary>
@@ -19,8 +20,9 @@ namespace XamariNES.UI.App.Resources
         /// </summary>
         public Reader()
         {
-            //_assembly = Assembly.GetExecutingAssembly();
-            _assembly = null;//Assembly.GetExecutingAssembly();
+            _assembly = typeof(App).GetTypeInfo().Assembly; // .NET Standard 1.4 (for 15063 compatibility)
+            //_assembly = Assembly.GetExecutingAssembly();  // .NET Standard 2.0 (for 16299 and above)
+
         }
 
         /// <summary>
@@ -30,8 +32,12 @@ namespace XamariNES.UI.App.Resources
         /// <returns></returns>
         public byte[] GetResource(string resource)
         {
+            
             if (!_assembly.GetManifestResourceNames().Any(x => x == resource))
+            {
                 throw new Exception($"Embedded Resource Not Found: {resource}");
+            }
+           
 
             byte[] output;
             using (var stream = _assembly.GetManifestResourceStream(resource))
@@ -42,6 +48,6 @@ namespace XamariNES.UI.App.Resources
 
             return output;
         }
-        */
+        
     }
 }

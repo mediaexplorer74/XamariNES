@@ -76,8 +76,8 @@ namespace XamariNES.UI.App.Pages.ViewModels
             _renderer = new SKBitmapRenderer();
 
             //Setup Emulator
-            //_emu = new NESEmulator(_resourceReader.GetResource(ResourceRom), GetFrameFromEmulator);
-            _emu = new NESEmulator(null, GetFrameFromEmulator);
+            _emu = new NESEmulator(_resourceReader.GetResource(ResourceRom), GetFrameFromEmulator);
+            //_emu = new NESEmulator(null, GetFrameFromEmulator);
 
             //Setup Static Generator
             _renderStaticTask = Task.Factory.StartNew(RenderStatic);
@@ -215,6 +215,12 @@ namespace XamariNES.UI.App.Pages.ViewModels
 
                 MessagingCenter.Send(this, "InvalidateConsoleSurface");
             }
+            //RND PART BEGIN
+            //else if (e.ActionType == SKTouchAction.Entered)  
+            //{
+            //    SelectRomFile();
+            //}
+            //RND PART END
         }
 
         /// <summary>
@@ -224,15 +230,17 @@ namespace XamariNES.UI.App.Pages.ViewModels
         void PaintEmulator(SKPaintSurfaceEventArgs e)
         {
             //Only use clear when emulator is off, helps with performance
-            if(!_powerOn)
-                e.Surface.Canvas.Clear(SKColors.Black);
+            if (!_powerOn)
+            {
+                e.Surface.Canvas.Clear(SKColors.Green);//Black);
+            }
 
             //Set Horizontal Padding for Top/Bottom of Emulator Screen
             //TODO: Need to clean this up to handle situations where the screen might be very wide, which makes it way too tall
             if (!_horizontalPaddingSet)
             {
                 _horizontalPaddingSet = true;
-                _screenHeight = (e.Info.Rect.Right / 1.066f);
+                _screenHeight = 600; //(e.Info.Rect.Right / 1.066f);
                 _horizontalPadding = (e.Info.Height - _screenHeight) / 2;
             }
 
@@ -248,7 +256,7 @@ namespace XamariNES.UI.App.Pages.ViewModels
         void PaintController(SKPaintSurfaceEventArgs e)
         {
             var controllerRect = new SKRect(0, 0, e.Info.Rect.Right, (e.Info.Rect.Right / 2.56f));
-            //var controllerImage = SKBitmap.Decode(_resourceReader.GetResource(ResourceControllerImage));
+            var controllerImage = SKBitmap.Decode(_resourceReader.GetResource(ResourceControllerImage));
 
             //Determine the ratios difference between the original image and the resized image
             var xRatio = ((float)controllerRect.Width / 64/*controllerImage.Width*/);
@@ -264,7 +272,7 @@ namespace XamariNES.UI.App.Pages.ViewModels
             _controllerBRect = new SKRect(475 * xRatio, 160 * yRatio, 540 * xRatio, 225 * yRatio);
 
             e.Surface.Canvas.Clear(SKColors.Black);
-            //e.Surface.Canvas.DrawBitmap(controllerImage, controllerRect);
+            e.Surface.Canvas.DrawBitmap(controllerImage, controllerRect);
         }
 
         /// <summary>
@@ -279,7 +287,7 @@ namespace XamariNES.UI.App.Pages.ViewModels
             var consoleRect = new SKRect(0, 0, e.Info.Rect.Right, (e.Info.Rect.Right / 3.02f));
 
             //Draw the console
-            SkiaSharp.SKBitmap consoleImage = null;//SKBitmap.Decode(_resourceReader.GetResource(ResourceConsoleImage));
+            SkiaSharp.SKBitmap consoleImage = SKBitmap.Decode(_resourceReader.GetResource(ResourceConsoleImage));
             e.Surface.Canvas.DrawBitmap(consoleImage, consoleRect);
 
             //Determine the ratios difference between the original image and the resized image
@@ -307,15 +315,15 @@ namespace XamariNES.UI.App.Pages.ViewModels
         {
             string[] fileTypes = null;
 
-            //if (Device.RuntimePlatform == Device.Android)
-            //{
-            //    fileTypes = new string[] { "image/png", "image/jpeg" };
-            //}
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                fileTypes = new string[] { "image/png", "image/jpeg" };
+            }
 
-            //if (Device.RuntimePlatform == Device.iOS)
-            //{
-            //    fileTypes = new string[] { "public.image" }; // same as iOS constant UTType.Image
-            //}
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                fileTypes = new string[] { "public.image" }; // same as iOS constant UTType.Image
+            }
 
             if (Device.RuntimePlatform == Device.UWP)
             {
@@ -328,6 +336,7 @@ namespace XamariNES.UI.App.Pages.ViewModels
                 fileTypes = new string[] { "NES files (*.nes)|*.nes", "ZIP files (*.zip)|*.zip" };
             }
             */
+            
 
             var file = await CrossFilePicker.Current.PickFile(fileTypes);
             

@@ -10,7 +10,7 @@ namespace XamariNES.UI.App.Pages
             InitializeComponent();
 
             //Safely handle the iPhone "notch" on iOS devices
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            //On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true); // ME
 
             BindingContext = new ViewModels.EmulatorHomeViewModel();
 
