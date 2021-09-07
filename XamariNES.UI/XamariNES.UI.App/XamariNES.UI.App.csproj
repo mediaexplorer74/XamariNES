@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\roms\color_test.nes" />
+    <None Remove="Resources\roms\nestest.nes" />
+    <None Remove="roms\dk.nes" />
+    <None Remove="Resources\images\nesconsole.png" />
+    <None Remove="Resources\images\nescontroller.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\images\nesconsole.png" />
+    <EmbeddedResource Include="Resources\images\nescontroller.png" />
+    <EmbeddedResource Include="Resources\roms\color_test.nes" />
+    <EmbeddedResource Include="Resources\roms\nestest.nes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.59.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.59.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
+    <PackageReference Include="Xamarin.Plugin.FilePicker" Version="2.1.41" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\XamariNES.Emulator\XamariNES.Emulator.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="Pages\ViewModels\" />
+    <Folder Include="Resources\images\" />
+    <Folder Include="Behaviors\" />
+  </ItemGroup>
+</Project>

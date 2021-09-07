@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.4</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XamariNES.Cartridge\XamariNES.Cartridge.csproj" />
+    <ProjectReference Include="..\XamariNES.Common\XamariNES.Common.csproj" />
+    <ProjectReference Include="..\XamariNES.Controller\XamariNES.Controller.csproj" />
+  </ItemGroup>
+
+</Project>
