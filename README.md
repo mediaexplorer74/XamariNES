@@ -15,9 +15,7 @@ This allowed me to write a fairly simple Xamarin.Forms project and quickly targe
 
 # Screenshots
 ![Shot 1](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0001.png)
-
 ![Shot 2](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0002.png)
-
 ![Shot 3](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0003.png)
 
 
