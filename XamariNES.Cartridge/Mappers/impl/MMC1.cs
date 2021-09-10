@@ -103,7 +103,7 @@ namespace XamariNES.Cartridge.Mappers.impl
             {
                 if (!_usePrgRam)
                 {
-                    //AccessViolationException
+                    //throw new AccessViolationException($"Attempt to read PRG RAM when disabled. Offset ${offset:X4}");
                     throw new Exception($"Attempt to read PRG RAM when disabled. Offset ${offset:X4}");
                 }
 
@@ -138,9 +138,10 @@ namespace XamariNES.Cartridge.Mappers.impl
             {
                 if (!_useChrRam)
                 {
-                    //AccessViolationException
+                    //throw new AccessViolationException($"Invalid write to CHR ROM (CHR RAM not enabled). Offset: {offset:X4}");
                     throw new Exception($"Invalid write to CHR ROM (CHR RAM not enabled). Offset: {offset:X4}");
                 }
+
                 var chrOffset = (offset / 0x1000) == 0 ? _chrBank0Offset : _chrBank1Offset;
                 chrOffset += offset % 0x1000;
                 _chrRom[chrOffset] = data;
@@ -161,7 +162,7 @@ namespace XamariNES.Cartridge.Mappers.impl
             {
                 if (!_usePrgRam)
                 {
-                    //AccessViolationException
+                    //throw new AccessViolationException($"Attempt to write PRG RAM when disabled. Offset ${offset:X4}");
                     throw new Exception($"Attempt to write PRG RAM when disabled. Offset ${offset:X4}");
                 }
                 _prgRam[offset - 0x6000] = data;

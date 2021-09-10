@@ -14,12 +14,13 @@ namespace XamariNES.Common.Logging
 
         static CustomLogger()
         {
+            /*
             var config = new NLog.Config.LoggingConfiguration();
-
+    
             //Setup Console Logging
-            var logconsole = new NLog.Targets.OutputDebugStringTarget("logconsole");//.ConsoleTarget("logconsole")
+            var logconsole = new NLog.Targets.ConsoleTarget("logconsole")
             {
-                //NLog.Layouts.Layout = Layout.FromString("${shortdate}\t${time}\t${level}\t${callsite}\t${message}");
+                Layout = Layout.FromString("${shortdate}\t${time}\t${level}\t${callsite}\t${message}")
             };
             config.AddTarget(logconsole);
 
@@ -33,6 +34,7 @@ namespace XamariNES.Common.Logging
             config.AddRuleForAllLevels(logconsole);
             config.AddRuleForAllLevels(logfile);
             LogManager.Configuration = config;
+            */
         }
     }
 }

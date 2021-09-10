@@ -15,8 +15,6 @@ namespace XamariNES.Emulator
         private readonly ProcessFrameDelegate _processFrame;
 
         //NES System Components
-        ////private readonly CPU.Core _cpu;
-        ////private readonly PPU.Core _ppu;
         private CPU.Core _cpu;
         private PPU.Core _ppu;
         private readonly NESCartridge _cartridge;
@@ -67,7 +65,9 @@ namespace XamariNES.Emulator
             _cpu.Reset();
             _ppu.Reset();
             _powerOn = true;
-            _emulatorTask = new TaskFactory().StartNew(Run, TaskCreationOptions.LongRunning);
+
+            //_emulatorTask = new TaskFactory().StartNew(Run, TaskCreationOptions.LongRunning);
+            Task.Factory.StartNew(Run);
         }
 
         /// <summary>
@@ -164,10 +164,12 @@ namespace XamariNES.Emulator
                         case enumEmulatorSpeed.Turbo:
                             continue;
                         case enumEmulatorSpeed.Normal when sw.ElapsedMilliseconds < 17:
-                            Thread.Sleep((int)(17 - sw.ElapsedMilliseconds));
+                            //Thread.Sleep((int)(17 - sw.ElapsedMilliseconds));
+                            //Task.Delay(((int)(17 - sw.ElapsedMilliseconds)));
                             break;
                         case enumEmulatorSpeed.Half when sw.ElapsedMilliseconds < 32:
-                            Thread.Sleep((int)(32 - sw.ElapsedMilliseconds));
+                            //Thread.Sleep((int)(32 - sw.ElapsedMilliseconds));
+                            //Task.Delay((int)(17 - sw.ElapsedMilliseconds));
                             break;
                     }
                     sw.Restart();

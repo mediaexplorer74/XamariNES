@@ -4,9 +4,6 @@
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\XamariNES.Cartridge\XamariNES.Cartridge.csproj" />
     <ProjectReference Include="..\XamariNES.Common\XamariNES.Common.csproj" />
     <ProjectReference Include="..\XamariNES.Controller\XamariNES.Controller.csproj" />
