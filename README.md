@@ -14,11 +14,11 @@ This allowed me to write a fairly simple Xamarin.Forms project and quickly targe
 
 
 # Screenshots
-![Druminator 3000](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0001.png)
+![Shot 1](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0001.png)
 
-![Druminator 3000](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0002.png)
+![Shot 2](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0002.png)
 
-![Druminator 3000](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0003.png)
+![Shot 3](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0003.png)
 
 
 # RnD
@@ -74,8 +74,8 @@ There are also a couple Common/Support/Testing projects which contain miscellane
 # Thanks!
 I wanted to put down some thank you's here for folks/projects/websites 
 that were invaluable for helping me get this project into a functional state:
-- [Eric Nusbaum] https://github.com/enusbaum/  - Original XamariNES's creator/author
-- [XamariNES] (https://github.com/enusbaum/XamariNES) - XamariNES for Android, iOS, MacOS, and UWP (Desktop only)
+- [Eric Nusbaum](https://github.com/enusbaum/)  - Original XamariNES's creator/author
+- [XamariNES](https://github.com/enusbaum/XamariNES) - XamariNES for Android, iOS, MacOS, and UWP (Desktop only)
 - [Nesdev wiki](http://wiki.nesdev.com/w/index.php/Nesdev_Wiki) - Wealth of detailed, accurate information on all aspects of the Nintendo Entertainment System
 - [6502.org](http://www.6502.org/) - Great amount of documentation, errata and tools specific to the MOS 6502 processor. Their interactive simulator specifically was invaluable for debugging the CPU
 - [Obelisk.me.uk](http://www.obelisk.me.uk/6502/reference.html) - Concise 6502 documentation, included a lot of it on my opcode documentation
