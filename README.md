@@ -63,7 +63,7 @@ into one another for reference.
   - Interceptor Pattern to allow for hooks/delegates to be mapped to memory offsets
 - **[XamariNES.Controller](./XamariNES.Controller/)** - NES Controller
   - Maintains and exposes controller button states
-- **[XamariNES.UI.*platform*](./XamariNES.UI/)** - Xamarin.Forms projects for cross-platform UI
+- **[XamariNES.UI.*platform*](./XamariNES.UI.App/)** - Xamarin.Forms projects for cross-platform UI
   - Xamarin.Forms project containing the UI logic for the emulator
   - Projects specific to their respective platforms (iOS, Android, Windows, macOS)
 
