@@ -2,24 +2,24 @@
 
 XamariNES is a cross-platform Nintendo Emulator using .Net Standard written in C#. 
 
+## My 2 cents
+Windows 10 Mobile support (min. os build: 15063)
 
-My 2 cents: Windows 10 Mobile support (min. os build: 15063)
 
-
-# Tech moments
-
+## Tech moments
 I use Microsoft Xamarin platform to utilize it as my UI layer for the emulator. 
 This allowed me to write a fairly simple Xamarin.Forms project and quickly target multiple platforms 
 (iOS, Android,and Windows 10/Windows 10 Mobile) with only a couple platform specific lines of code. 
 
 
-# Screenshots
-![Shot 1](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0001.png)
-![Shot 2](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0002.png)
-![Shot 3](https://github.com/mediaexplorer74/XamariNES/blob/main/ss_0003.png)
+## Screenshots
+![W10M 1](Images/shot1.png)
+![W10M 2](Images/shot2.png)
+![W10M 3](Images/shot3.png)
+![W11 Desktop](Images/shot4.png)
 
 
-# RnD
+## RnD
 The goals for this project were simple:
 - Write my fist emulated 8-bit CPU using C#
 - Learn the inner workings of the MOS 6502 CPU powering the original Nintendo Entertainment System
@@ -28,14 +28,14 @@ The goals for this project were simple:
 - Use .Net Standard & Microsoft Xamarin.Forms Framework to make the emulator cross-platform 
 
 
-# Contribute!
+## Contribute!
 There's still a TON of things missing from this emulator and areas of improvement which I just haven't had the time to get to yet.
 - Performance Improvements
 - Additional Cartridge Mappers
 - Audio Support (for the brave)
 
 
-# Solution Layout
+## Solution Layout
 Projects have a README.MD which expands on the internal functionality and layout of that project. 
 I tried to make the solution layout similar to that of the PCB within an actual Nintendo. 
 This is why XamariNES uses delegates as the interconnect between the PPU and the CPU 
@@ -43,7 +43,7 @@ This is why XamariNES uses delegates as the interconnect between the PPU and the
 into one another for reference. 
 
 
-# A brief summary of each project
+## A brief summary of each project
 - **[XamariNES.Emulator](./XamariNES.Emulator/)** - The System
   - All components are integrated into this project, same as the PCB
   - External facing actons (Controller Input, ROM Loading) go through the Emulator
@@ -69,7 +69,7 @@ into one another for reference.
 
 There are also a couple Common/Support/Testing projects which contain miscellaneous functionality.
 
-# Thanks!
+## Thanks!
 I wanted to put down some thank you's here for folks/projects/websites 
 that were invaluable for helping me get this project into a functional state:
 - [Eric Nusbaum](https://github.com/enusbaum/)  - Original XamariNES's creator/author
@@ -80,5 +80,11 @@ that were invaluable for helping me get this project into a functional state:
 - [NEScafé](https://github.com/GunshipPenguin/nescafe) Emulator by Rhys Rustad-Elliott - I literally would not have been able to untangle how the PPU works without this. Borrowed many of the same routines and logic around memory access and frame rendering
 
 
-# "CopyLeft" 
+## "CopyLeft" 
 XamariNES for W10M is distributed under the MIT License. 
+
+## ..
+AS IS. No support. RnD only.
+
+## .
+[m][e] 2021--2023
